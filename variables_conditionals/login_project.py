@@ -1,16 +1,11 @@
 # Create a login project
 # if the user has failed 3 times, program should say access denied
 # if the use is successful, the prompt should say ACCESS GRANTED
+import login_user
 
-users = [
-    {"username": "bingus", "password": "Password1"},
-    {"username": "dingus", "password": "Password2"} 
-]
-
-def check_user_credentials(user, user_entry, password_entry):
-    if user["username"] == user_entry and user["password"] == password_entry:
-        return True
-    return False
+user_1 = login_user.User("bingus", "Password1")
+user_2 = login_user.User("dingus", "Password2")
+users = [user_1, user_2]
 
 
 limit_attempts = 3
@@ -20,9 +15,8 @@ while is_not_logged_in:
     password_entry  = input("password: ")
 
     for user in users:
-        result = check_user_credentials(user, user_entry, password_entry)
 
-        if result == True:
+        if user.user_credentials(user_entry, password_entry) == True:
             print("Access Granted")
             is_not_logged_in = False
             break
