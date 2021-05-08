@@ -1,0 +1,4 @@
+{
+    "python.linting.enabled": false,
+    "python.pythonPath": "/home/bonn/Projects/venv/bin/python3.9"
+}
